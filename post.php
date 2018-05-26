@@ -2,9 +2,9 @@
 	require('config/config.php');
 	require('config/db.php');
 
-		// Check for delete
+		// проверка на нажатие
 		if(isset($_POST['delete'])){
-			// get form data
+	
 			$delete_id = mysqli_real_escape_string($conn, $_POST['delete_id']);
 	
 			$query = "DELETE FROM posts WHERE id={$delete_id} ";
@@ -21,20 +21,20 @@
 	// get ID
 	$id = mysqli_real_escape_string($conn, $_GET['id']);
 
-	// Create query
+	// создание запроса, с выборкой по id
 	$query = " SELECT * FROM posts WHERE id= ".$id;
 
-	// Get Result
+	// получить результат
 	$result = mysqli_query($conn, $query);
 
-	//Fetch data
+	//получить данные
 	$post = mysqli_fetch_assoc($result);
 	// var_dump($posts);
 
-	// Free result
+// Освободить память выделенную для результата запроса
 	mysqli_free_result($result);
-
-	// Close
+	
+// закрыть подключение к базе
 	mysqli_close($conn);
 
 

@@ -2,19 +2,18 @@
 require 'config/config.php';
 require 'config/db.php';
 
-// Create query
-$query = " SELECT * FROM posts ORDER BY created_at DESC";
+// Создание запроса
+$query = " SELECT * FROM posts ORDER BY created_at DESC";//Сортировка по дате создание по убыванию
 
-// Get Result
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);//готовый запрос
 
-//Fetch data
+//получение даннх
 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Free result
+// Освободить память выделенную для результата запроса
 mysqli_free_result($result);
 
-// Close
+// закрыть подключение к базе
 mysqli_close($conn);
 
 ?>

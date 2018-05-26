@@ -2,9 +2,9 @@
 	require 'config/config.php';
 	require 'config/db.php';
 
-	// Check for submit
+	// проверка на нажатие
 	if(isset($_POST['submit'])){
-		// get form data
+
 		$update_id = mysqli_real_escape_string($conn, $_POST['update_id']);
 		$title = mysqli_real_escape_string($conn, $_POST['title']);
 		$body = mysqli_real_escape_string($conn, $_POST['body']);
@@ -22,20 +22,20 @@
 
 	$id = mysqli_real_escape_string($conn, $_GET['id']);
 
-	// Create query
+	// создание запроса
 	$query = " SELECT * FROM posts WHERE id= ".$id;
 
-	// Get Result
+	// получить результат
 	$result = mysqli_query($conn, $query);
 
-	//Fetch data
+	//получить данные
 	$post = mysqli_fetch_assoc($result);
 	// var_dump($posts);
 
-	// Free result
+// Освободить память выделенную для результата запроса
 	mysqli_free_result($result);
 
-	// Close
+// закрыть подключение к базе
 	mysqli_close($conn);
 
 ?>

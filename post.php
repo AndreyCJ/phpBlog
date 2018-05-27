@@ -55,7 +55,7 @@
 			  </form>
 			  <a href="<?echo ROOT_URL?>editpost.php?id=<?php echo $post['id'];?>" class="btn btn-deflault">Изменить</a>
   			<hr class="my-4">
-  			<p>Создан <? echo $post['created_at']; ?> by <?echo $post['author']; ?></p>
+				<div class="wrap"><p><div class="left"> <?echo $post['author']; ?></div> <div class="right"><?echo $post['created_at']; ?></div></p></div>
   				<p class="lead">
     				<a class="btn btn-primary btn-lg" href="<?echo ROOT_URL;?>" role="button">Назад</a>
   				</p>
